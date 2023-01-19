@@ -1,0 +1,20 @@
+<div class="content">
+  <h1>Login</h1>
+  <hr />
+  <form [formGroup]="loginForm">
+
+    <div class="form-group">
+      <label>User name</label>
+      <input class="form-control" formControlName="userName" placeholder="Enter user name" required>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" formControlName="password" placeholder="Password" required>
+
+    </div>
+    <div class="bottom">
+      <button type="submit" (click)="login()" class="btn btn-primary">Login</button>
+      <a [routerLink]="'/register'">You do not have an account? Register !!</a>
+    </div>
+  </form>
+</div>

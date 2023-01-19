@@ -1,0 +1,21 @@
+.form-group {
+  padding-bottom: 16px;
+  width: 500px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+hr {
+  width: 35%;
+}
