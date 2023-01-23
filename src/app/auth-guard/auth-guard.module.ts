@@ -17,7 +17,7 @@ export class AuthGuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     this.sub.add(this.userService.getUserObs().subscribe(
         (user: User) => {
-          if (user.login === undefined) {
+          if (user.login === "") {
             this.router.navigate(['/login']);
           }
 

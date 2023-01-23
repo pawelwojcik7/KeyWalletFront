@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Subscription} from "rxjs";
 import {Router} from "@angular/router";
@@ -11,10 +11,13 @@ import {LoginRequest} from "../models/LoginRequest";
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent {
-  loginForm: FormGroup = new FormGroup({ userName: new FormControl(), password: new FormControl() });
-
+export class LoginPageComponent implements OnInit{
+  loginForm: FormGroup = new FormGroup({ userName: new FormControl() });
+  passwordForm: FormGroup = new FormGroup({ password: new FormControl() });
   private subscriptions = new Subscription();
+  smthFailed: boolean = false;
+  failedMessage: string = "";
+
 
   constructor(private readonly userService: UserService,
               private readonly router: Router) { }
@@ -24,19 +27,25 @@ export class LoginPageComponent {
   }
 
   login(): void {
-    const requestBody: LoginRequest = { login: this.loginForm.value['userName'], password: this.loginForm.value['password'] };
+    const requestBody: LoginRequest = { login: this.loginForm.value['userName'], password: this.passwordForm.value['password'] };
     this.subscriptions.add(
       this.userService.loginUser(requestBody).subscribe(
         () => {
           this.userService.setUser(new User(requestBody.login, requestBody.password));
-          this.router.navigate(['wallet']);
+          this.router.navigate(['main']);
         },
-        () => {
-          this.userService.setUser(new User());
+        (error) => {
+          this.userService.setUser(new User("","", false));
           this.loginForm.reset();
+          this.passwordForm.reset()
+          this.smthFailed=true;
+          this.failedMessage=error.error
         }
       )
 
     );
+  }
+
+  ngOnInit(): void {
   }
 }

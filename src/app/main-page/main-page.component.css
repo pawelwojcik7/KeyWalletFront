@@ -1,3 +1,26 @@
-.spacer {
-  flex: 1 1 auto;
+
+.center-content{
+  display:flex;
+  flex-direction:row;
+  height:100vh;
+}
+
+.content{
+  width:100%;
+}
+
+
+.left-side, .right-side {
+  aspect-ratio: 1 / 5;
+}
+main {
+  margin-top: 24px;
+  background-color: #14161a;
+  padding: 16px 16px 64px;
+  width: 100%;
+  border-radius: 32px;
+}
+
+btn btn-info{
+
 }

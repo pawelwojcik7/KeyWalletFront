@@ -1,0 +1,10 @@
+
+
+<div style="position:relative;">
+  <div class="tab" [ngClass]="{'tab--selected': ngModel === value}" (click)="clickTab()">
+    <ng-content></ng-content>
+  </div>
+  <hr />
+</div>
+
+

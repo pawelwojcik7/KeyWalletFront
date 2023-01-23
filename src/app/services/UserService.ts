@@ -10,7 +10,7 @@ import {User} from "../models/User";
 })
 export class UserService {
 
-  user: User = new User()
+  user: User = new User("","",false)
 
   loggedUserObs = new BehaviorSubject<User>(this.user)
 

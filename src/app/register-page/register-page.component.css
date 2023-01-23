@@ -1,0 +1,60 @@
+.bi{
+  font-size:128px;
+}
+.register-form {
+  display:flex;
+}
+.register {
+  flex: 6;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+
+}
+.password-validator {
+  flex: 5;
+}
+
+.form-group, bottom {
+  padding: 8px 0 8px;
+}
+
+.bottom {
+  padding: 8px 0 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form{
+  width:400px;
+}
+
+
+
+.center-content{
+  display:flex;
+  flex-direction:row;
+  height:100vh;
+}
+
+.content{
+  width:100%;
+}
+
+
+.left-side, .right-side {
+  aspect-ratio: 1 / 5;
+}
+main {
+  margin-top: 24px;
+  background-color: #14161a;
+  padding: 16px 16px 64px;
+  width: 100%;
+  background-color: #14161a;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+}

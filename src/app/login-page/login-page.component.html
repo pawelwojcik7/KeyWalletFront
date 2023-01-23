@@ -1,20 +1,39 @@
-<div class="content">
-  <h1>Login</h1>
-  <hr />
-  <form [formGroup]="loginForm">
+<body>
+<div class="center-content">
+  <div class="left-side"></div>
+  <div class="content">
+    <main>
 
-    <div class="form-group">
-      <label>User name</label>
-      <input class="form-control" formControlName="userName" placeholder="Enter user name" required>
-    </div>
-    <div class="form-group">
-      <label>Password</label>
-      <input type="password" class="form-control" formControlName="password" placeholder="Password" required>
+      <div class="center icon">
+        <i class="bi bi-box-arrow-in-right"></i>
+      </div>
+      <div class="center">
+        <form>
 
-    </div>
-    <div class="bottom">
-      <button type="submit" (click)="login()" class="btn btn-primary">Login</button>
-      <a [routerLink]="'/register'">You do not have an account? Register !!</a>
-    </div>
-  </form>
+          <div class="form-group" [formGroup]="loginForm">
+            <label>Login</label>
+            <input class="form-control" formControlName="userName" placeholder="Login">
+          </div>
+          <div class="form-group" [formGroup]="passwordForm">
+            <label>Hasło</label>
+            <input type="password" class="form-control" formControlName="password" placeholder="Hasło">
+          </div>
+          <div class="bottom">
+            <button type="submit" (click)="login()"  class="btn btn-info">Zaloguj się</button>
+            <a mat-button routerLink="/register">Nie masz jeszcze konta? Zarejestruj się!!</a>
+          </div>
+          <div *ngIf="smthFailed">
+            <p class="text-danger">{{failedMessage}} </p>
+          </div>
+        </form>
+
+      </div>
+
+    </main>
+
+
+  </div>
+
+  <div class="right-side"></div>
 </div>
+</body>

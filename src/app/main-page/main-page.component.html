@@ -1,11 +1,34 @@
-<mat-toolbar color="primary" class="mat-elevation-z8">
-  <span><mat-icon>eco</mat-icon>Password Wallet</span>
+<body>
+<div class="center-content">
 
-  <div class="spacer"></div>
+  <div class="left-side"></div>
 
-  <a mat-button routerLink="add-password">Add password</a>
-  <a mat-button routerLink="my-passwords">My passwords</a>
-  <a mat-button routerLink="ip-addresses">IP Addresses</a>
-  <a mat-button routerLink="change-password">Change Password</a>
-  <a mat-raised-button color="accent" routerLink="login">Sign out</a>
-</mat-toolbar>
+  <div class="content">
+    <app-navbar>
+      <app-tab-list>
+        <app-tab ngDefaultControl [(ngModel)]="selectedTab" [value]="tabs.MyPasswords">Moje hasła</app-tab>
+        <app-tab ngDefaultControl [(ngModel)]="selectedTab" [value]="tabs.AddPassword">Dodaj hasło</app-tab>
+        <app-tab ngDefaultControl [(ngModel)]="selectedTab" [value]="tabs.ChangePassword">Zmień hasło</app-tab>
+        <app-tab ngDefaultControl [(ngModel)]="selectedTab" [value]="tabs.IpAddresses">Adresy Ip</app-tab>
+        <app-tab ngDefaultControl [(ngModel)]="selectedTab" [value]="tabs.UserLogins">Logowania</app-tab>
+        <app-tab ngDefaultControl [(ngModel)]="selectedTab" routerLink="/login" [value]="tabs.LogOut">Wyloguj</app-tab>
+
+
+
+      </app-tab-list>
+    </app-navbar>
+
+    <main>
+      <app-add-password *ngIf="selectedTab == tabs.AddPassword" ></app-add-password>
+      <app-change-password *ngIf="selectedTab == tabs.ChangePassword"></app-change-password>
+      <app-passwords *ngIf="selectedTab == tabs.MyPasswords"></app-passwords>
+      <app-ip-addresses *ngIf="selectedTab == tabs.IpAddresses"></app-ip-addresses>
+      <app-user-logins *ngIf="selectedTab == tabs.UserLogins"></app-user-logins>
+    </main>
+
+
+  </div>
+
+  <div class="right-side"></div>
+</div>
+</body>

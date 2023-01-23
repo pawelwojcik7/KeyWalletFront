@@ -1,0 +1,32 @@
+<div class="center logo">
+
+  <i class="bi bi-wallet2"></i>
+  <i class="bi bi-key"></i>
+
+
+</div>
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Time</th>
+    <th scope="col">Correct</th>
+    <th scope="col">User Id</th>
+    <th scope="col">Session</th>
+    <th scope="col">Ip address</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of table">
+    <td>{{item.id}}</td>
+    <td>{{item.time}}</td>
+    <td>{{item.correct}}</td>
+    <td>{{item.idUser}}</td>
+    <td>{{item.session}}</td>
+    <td>{{item.idAddress}}</td>
+
+
+  </tr>
+
+  </tbody>
+</table>

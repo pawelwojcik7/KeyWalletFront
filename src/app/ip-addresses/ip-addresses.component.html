@@ -1,0 +1,40 @@
+<div class="center logo">
+
+  <i class="bi bi-wallet2"></i>
+  <i class="bi bi-key"></i>
+
+
+</div>
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Ok login</th>
+    <th scope="col">Bad login</th>
+    <th scope="col">Last bad login</th>
+    <th scope="col">Permanent lock</th>
+    <th scope="col">Temp lock</th>
+    <th scope="col">Ip address</th>
+    <th scope="col">Operacje</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of table">
+    <td>{{item.id}}</td>
+    <td>{{item.okLoginNum}}</td>
+    <td>{{item.badLoginNum}}</td>
+    <td>{{item.lastBadLoginNum}}</td>
+    <td>{{item.permanentLock}}</td>
+    <td>{{item.tempLock}}</td>
+    <td>{{item.ipAddress}}</td>
+    <td style="width:400px;">
+      <div class="akcje">
+        <button type="submit" class="btn btn-info" (click)="block(item)" *ngIf="!item.permanentLock">Block</button>
+        <button type="submit" class="btn btn-info" (click)="unblock(item)" *ngIf="item.permanentLock">Unblock</button>
+      </div>
+    </td>
+
+  </tr>
+
+  </tbody>
+</table>
